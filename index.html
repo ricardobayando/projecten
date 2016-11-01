@@ -1,1 +1,170 @@
+<!DOCTYPE html>
+
+<html lang="en" class=" js draganddrop boxshadow cssanimations csstransforms csstransitions no-mobile no-phone no-tablet mobilegradea js draganddrop boxshadow cssanimations csstransforms csstransitions no-mobile no-phone no-tablet mobilegradea"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link href="stylesheets/stylesheet.css" rel="stylesheet" type="text/css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js" type="text/javascript"></script>   
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <body>
+
+
+
+ 
+
+      <div class="content uploader">
+
+        <div class="intro">
+          <h1 class="animate fadeIn phase-1">Send files to projecten</h1>
+          <p class="animate fadeIn phase-2">Drag or select files to upload</p>
+        </div>
+
+        
+          
+        <div id="ditm-uploader" class="ditm-uploader"><div class="ditm-wrapper">
+            <div class="qq-uploader-selector qq-uploader">
+              <div id="ditm-dropzone" class="ditm-dropzone">
+
+                <div class="ditm-line-effect">
+                  <div class="lines">
+                    <div class="vertical"></div>
+                    <div class="horizontal"></div>
+                  </div>
+                </div>
+
+                <div class="ditm-guide animate fadeIn phase-3">
+                    <div class="drag-and-drop">
+                      <div class="ditm-drag">Drag files here</div>
+                      <div class="ditm-or"><span>or</span></div>
+                    </div>
+                    <div class="ditm-browse qq-upload-button-selector qq-upload-button" style="position: relative; overflow: hidden; direction: ltr;">select to upload<input qq-button-id="bc66ca9f-ef3a-4cd7-ad8f-f4c06230df48" title="file input" multiple type="file" name="qqfile" style="position: absolute; right: 0px; top: 0px; font-family: Arial; font-size: 118px; margin: 0px; padding: 0px; cursor: pointer; opacity: 0; height: 100%;"></div>
+                    <div class="ditm-filesize">maximum file size is 100MB</div>
+                </div>
+              </div>
+
+              <ul class="ditm-list qq-upload-list-selector qq-upload-list animate fadeIn phase-3" aria-live="polite" aria-relevant="additions removals"></ul>
+
+            </div>
+
+            <dialog class="ditm-dialog qq-alert-dialog-selector">
+              <div class="spacer">
+                <div class="message qq-dialog-message-selector"></div>
+                <div class="buttons qq-dialog-buttons">
+                  <button type="button" class="qq-cancel-button-selector">Close</button>
+                </div>
+              </div>
+            </dialog>
+
+          </div></div>
+
+        <script src="https://dropitto.me/uploader/js/fine-uploader.min.js" type="text/javascript"></script>
+
+        <script type="text/template" id="qq-template">
+          <div class="ditm-wrapper">
+            <div class="qq-uploader-selector qq-uploader">
+              <div id="ditm-dropzone" class="ditm-dropzone">
+
+                <div class="ditm-line-effect">
+                  <div class="lines">
+                    <div class="vertical"></div>
+                    <div class="horizontal"></div>
+                  </div>
+                </div>
+
+                <div class="ditm-guide animate fadeIn phase-3">
+                    <div class="drag-and-drop">
+                      <div class="ditm-drag">Drag files here</div>
+                      <div class="ditm-or"><span>or</span></div>
+                    </div>
+                    <div class="ditm-browse qq-upload-button-selector qq-upload-button">select to upload</div>
+                    <div class="ditm-filesize">maximum file size is 100MB</div>
+                </div>
+              </div>
+
+              <ul class="ditm-list qq-upload-list-selector qq-upload-list animate fadeIn phase-3" aria-live="polite" aria-relevant="additions removals">
+                <li>
+                  <div class="ditm-progress qq-progress-bar-container-selector">
+                    <div role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" class="ditm-bar qq-progress-bar-selector qq-progress-bar"></div>
+                  </div>
+                  <div class="ditm-info">
+                    <div class="ditm-text">
+                      <span class="qq-upload-file-selector qq-upload-file"></span>
+                      <span class="qq-upload-size-selector qq-upload-size"></span>
+                    </div>
+                    <div class="ditm-utils">
+                      <div class="ditm-buttons">
+                        <button type="button" class="qq-btn qq-upload-cancel-selector qq-upload-cancel">cancel</button>
+                        <button type="button" class="qq-btn qq-upload-retry-selector qq-upload-retry">retry</button>
+                      </div>
+                      <div class="ditm-status">
+                        <span role="status" class="ditm-status-text qq-upload-status-text-selector qq-upload-status-text">Uploading...</span>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+
+            </div>
+
+            <dialog class="ditm-dialog qq-alert-dialog-selector">
+              <div class="spacer">
+                <div class="message qq-dialog-message-selector"></div>
+                <div class="buttons qq-dialog-buttons">
+                  <button type="button" class="qq-cancel-button-selector">Close</button>
+                </div>
+              </div>
+            </dialog>
+
+          </div>
+        </script>
+
+        <script type="text/javascript">
+          var app = {
+            config: {
+              apiEndpoint: 'https://dropitto.me/uploader/upload/',
+              uploadLimit: 104857600,
+              chunkSize: 5242880            }
+          };
+        </script>
+
+        <script type="text/javascript">
+
+          app.uploader = new qq.FineUploader({
+            debug: true,
+            validation: {
+              sizeLimit: app.config.uploadLimit
+            },
+            element: document.getElementById('ditm-uploader'),
+            request: {
+              endpoint: app.config.apiEndpoint,
+              method: 'POST',
+              params: {
+                password: "04617bcdcc01a86faab0df95b4bafe43",
+                pageId: "3291678"
+              }
+            },
+            retry: {
+               enableAuto: false
+            },
+            chunking: {
+              concurrent: {
+                enabled: true
+              },
+              enabled: true,
+              partSize: app.config.chunkSize,
+              success: {
+                endpoint: app.config.apiEndpoint+'?done'
+              }
+            }
+          });
+
+          app.uploader.addExtraDropzone( document.getElementById('ditm-dropzone') );
+
+        </script>
+                  
+      </div>
+
+  
+</body></html>
 
